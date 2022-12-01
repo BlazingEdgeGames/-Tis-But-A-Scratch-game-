@@ -971,7 +971,7 @@ bus = "Music"
 
 [node name="mainthemeloop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -8.0
+volume_db = -6.0
 bus = "Music"
 
 [node name="options" type="Node2D" parent="."]
