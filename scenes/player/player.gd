@@ -88,6 +88,7 @@ var crosshair = load("res://assets/crosshair.png")
 func _ready():
 	level = get_parent().level
 	slowtime = GlobalVars.slowtime
+	get_node("WorldEnvironment").environment.glow_enabled = GlobalVars.postprocess
 	
 	if level == 1:
 		coins += 20

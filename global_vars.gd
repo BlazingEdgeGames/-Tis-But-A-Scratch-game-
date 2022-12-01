@@ -5,6 +5,8 @@ var slowtime = 0.1
 
 var musicvolume = -10
 var sfxvolume = -10
+var postprocess = true
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

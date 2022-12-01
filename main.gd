@@ -18,7 +18,8 @@ var lv4 = preload("res://scenes/levels/level4.tscn")
 func _ready():
 	
 	Input.set_custom_mouse_cursor(menucursor, Input.CURSOR_ARROW)
-	
+	get_node("WorldEnvironment").environment.glow_enabled = GlobalVars.postprocess
+	get_node("options/sliders/disablepost").pressed = GlobalVars.postprocess
 	
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), GlobalVars.sfxvolume)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), GlobalVars.musicvolume)
@@ -172,3 +173,8 @@ func _on_credits_pressed():
 		credits = false
 		get_node("credits/AnimationPlayer").play_backwards("credits")
 	
+
+
+func _on_disablepost_toggled(button_pressed):
+	get_node("WorldEnvironment").environment.glow_enabled = button_pressed
+	GlobalVars.postprocess = button_pressed
