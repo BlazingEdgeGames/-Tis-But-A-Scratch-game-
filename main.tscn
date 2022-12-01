@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://assets/main/menustartbutton.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://assets/main/sliderfill.png" type="Texture" id=13]
 [ext_resource path="res://assets/main/freeze.png" type="Texture" id=14]
 [ext_resource path="res://assets/main/heart.png" type="Texture" id=15]
+[ext_resource path="res://assets/fonts/ethnocentric rg it.otf" type="DynamicFontData" id=16]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -651,6 +652,10 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="DynamicFont" id=50]
+size = 52
+font_data = ExtResource( 16 )
+
 [node name="main" type="Node2D"]
 position = Vector2( 775, 170 )
 script = ExtResource( 1 )
@@ -1081,7 +1086,19 @@ anims/heartbeat = SubResource( 49 )
 anims/RESET = SubResource( 43 )
 anims/credits = SubResource( 42 )
 
+[node name="Title" type="Label" parent="."]
+margin_left = -81.0
+margin_top = -156.0
+margin_right = 525.0
+margin_bottom = -8.0
+custom_fonts/font = SubResource( 50 )
+text = "'Tis But A Scratch"
+align = 1
+valign = 1
+autowrap = true
+
 [node name="1Px2" type="Sprite" parent="."]
+visible = false
 modulate = Color( 0.0823529, 0, 0.0862745, 1 )
 light_mask = 0
 position = Vector2( 195, 358 )

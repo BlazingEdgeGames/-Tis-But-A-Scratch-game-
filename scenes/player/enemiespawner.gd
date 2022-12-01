@@ -15,7 +15,7 @@ func _ready():
 	match level:
 		
 		0:
-			timespawn = 4
+			timespawn = 6
 			yield(get_tree().create_timer(6),"timeout")
 			while true:
 				yield(get_tree().create_timer(timespawn),"timeout")
