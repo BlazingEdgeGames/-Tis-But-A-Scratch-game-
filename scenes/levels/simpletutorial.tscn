@@ -1,0 +1,470 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/Levels/levelbounds.png" type="Texture" id=2]
+[ext_resource path="res://assets/Levels/levelbg.png" type="Texture" id=3]
+[ext_resource path="res://scenes/levels/levelelements/itemspawner.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/levels/assets/WASD.png" type="Texture" id=6]
+[ext_resource path="res://scenes/levels/assets/arrowkeys.png" type="Texture" id=7]
+[ext_resource path="res://assets/fonts/SalmaproMedium.otf" type="DynamicFontData" id=8]
+[ext_resource path="res://scenes/levels/simpletutorial.gd" type="Script" id=9]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("1Px2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3426, -2249 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "slide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("1Px2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2011, -1353 ), Vector2( 922, 356 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/hud/dead/1:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -824, 256 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/hud/dead/2:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2064, 672 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/hud/dead/1Px:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1088, -600 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/hud/dead/1Px:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 9.7 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/hud/dead/Roundedsquare:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -344, 1428 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("body/hud/dead/buttons:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("body/hud/dead/buttons/Menu/mainmenu:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("body/hud/dead/buttons/Restart/restart:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "damageflash"
+length = 0.2
+step = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/Sprite:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.278431, 0.278431, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "game over"
+length = 2.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/hud/dead/1:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -824, 300 ), Vector2( 200, 300 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/hud/dead/2:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2064, 600 ), Vector2( 2064, 600 ), Vector2( 700, 600 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/hud/dead/1Px:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1088, -600 ), Vector2( 1088, -600 ), Vector2( 920, 608 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/hud/dead/1Px:rotation_degrees")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 9.7 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/hud/dead/Roundedsquare:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.76, 1.29 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -344, 1428 ), Vector2( -344, 1428 ), Vector2( 112, 1188 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/hud/dead/buttons:modulate")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.51, 1.91 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("body/hud/dead/buttons/Menu/mainmenu:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.69, 1.74 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("body/hud/dead/buttons/Restart/restart:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1.69, 1.74 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "healflash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.745098, 0.290196, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 988, 25 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 96
+font_data = ExtResource( 8 )
+
+[node name="tutorial" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="player" parent="." instance=ExtResource( 5 )]
+position = Vector2( 953, 525 )
+coins = 200
+
+[node name="Camera2D" parent="player/body" index="6"]
+limit_right = 1920
+limit_bottom = 1080
+
+[node name="menutransition" parent="player/body/hud/dead" index="6"]
+anims/RESET = SubResource( 1 )
+anims/slide = SubResource( 2 )
+
+[node name="AnimationPlayer" parent="player" index="2"]
+anims/RESET = SubResource( 3 )
+anims/damageflash = SubResource( 4 )
+"anims/game over" = SubResource( 5 )
+anims/healflash = SubResource( 6 )
+
+[node name="wall" type="StaticBody2D" parent="."]
+collision_layer = 17
+collision_mask = 17
+
+[node name="Light" type="Light2D" parent="wall"]
+position = Vector2( 960, 540 )
+scale = Vector2( 0.64, 0.54 )
+texture = ExtResource( 2 )
+energy = 3.0
+
+[node name="Light2D" type="Light2D" parent="wall"]
+position = Vector2( 1064, 648 )
+scale = Vector2( 1.06804, 1.048 )
+texture = ExtResource( 3 )
+energy = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+position = Vector2( 944, 0 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="wall"]
+position = Vector2( 1912, 600 )
+rotation = 1.5708
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="wall"]
+position = Vector2( 8, 624 )
+rotation = 1.5708
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wall"]
+position = Vector2( 992, 1080 )
+shape = SubResource( 7 )
+
+[node name="itemspawner" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1705, 229 )
+type = 2
+
+[node name="itemspawner2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 210, 858 )
+
+[node name="hints" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0.231373 )
+z_index = -1
+
+[node name="use wasd2" type="Label" parent="hints"]
+margin_left = 1120.0
+margin_top = 384.0
+margin_right = 1759.0
+margin_bottom = 1431.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = SubResource( 8 )
+text = "Pressing \"E or \"Tab\" opens the upgrade menu.
+
+
+
+"
+align = 1
+autowrap = true
+
+[node name="use wasd" type="Label" parent="hints"]
+margin_left = 560.0
+margin_top = 368.0
+margin_right = 1199.0
+margin_bottom = 1181.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = SubResource( 8 )
+text = "To move , use
+
+
+ or
+
+
+"
+align = 1
+
+[node name="Wasd" type="Sprite" parent="hints/use wasd"]
+position = Vector2( 327.513, 247.618 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 101
+texture = ExtResource( 6 )
+
+[node name="Arrowkeys" type="Sprite" parent="hints/use wasd"]
+position = Vector2( 332.672, 573.506 )
+scale = Vector2( 0.4, 0.44 )
+z_index = 101
+texture = ExtResource( 7 )
+
+[node name="use items" type="Label" parent="hints"]
+margin_left = 56.0
+margin_top = 544.0
+margin_right = 840.0
+margin_bottom = 1152.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = SubResource( 8 )
+text = "These spawn items every while that can be obtained by walking over it."
+align = 1
+autowrap = true
+
+[node name="dis yo heart" type="Label" parent="hints"]
+margin_left = 112.0
+margin_top = 88.0
+margin_right = 732.0
+margin_bottom = 348.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = SubResource( 8 )
+text = "This is your health."
+align = 1
+autowrap = true
+
+[node name="coins" type="Label" parent="hints"]
+margin_left = 1368.0
+margin_top = 40.0
+margin_right = 2368.0
+margin_bottom = 300.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = SubResource( 8 )
+text = "Coin counter.  -->"
+align = 1
+autowrap = true
+
+[node name="score" type="Label" parent="hints"]
+margin_left = 1392.0
+margin_top = 120.0
+margin_right = 2392.0
+margin_bottom = 380.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = SubResource( 8 )
+text = "Score counter.  -->"
+align = 1
+autowrap = true
+
+[node name="coins2" type="Label" parent="hints"]
+margin_left = 1432.0
+margin_top = 872.0
+margin_right = 2432.0
+margin_bottom = 1132.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = SubResource( 8 )
+text = "You earn coins by killing enemies!"
+align = 1
+autowrap = true
+
+[node name="mouse" type="Label" parent="hints"]
+margin_left = 808.0
+margin_top = 768.0
+margin_right = 1808.0
+margin_bottom = 1581.0
+rect_scale = Vector2( 0.3, 0.3 )
+custom_fonts/font = SubResource( 8 )
+text = "Move your cursor around to aim, and left click to shoot (after purchasing a weapon from the upgrade menu).
+"
+align = 1
+autowrap = true
+
+[editable path="player"]

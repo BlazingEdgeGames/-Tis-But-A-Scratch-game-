@@ -1,0 +1,258 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/player/weapons/shotgun.gd" type="Script" id=1]
+[ext_resource path="res://scenes/player/weapons/assets/ball.png" type="Texture" id=2]
+[ext_resource path="res://scenes/player/cards/audio/shotgun.ogg" type="AudioStream" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 7.07107
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 210.623
+
+[node name="shotgun" type="Node2D"]
+z_index = -1
+
+[node name="pellet" type="Node2D" parent="."]
+
+[node name="pellet" type="KinematicBody2D" parent="pellet"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="pellet/pellet"]
+modulate = Color( 0.623529, 0.623529, 0.623529, 1 )
+light_mask = 4
+position = Vector2( 2.38419e-07, -4.76837e-07 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet/pellet"]
+shape = SubResource( 1 )
+
+[node name="pellet" type="Area2D" parent="pellet/pellet"]
+collision_layer = 24
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet/pellet/pellet"]
+shape = SubResource( 2 )
+
+[node name="attractionzone" type="Area2D" parent="pellet/pellet"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet/pellet/attractionzone"]
+rotation = 0.785398
+shape = SubResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="pellet/pellet"]
+
+[node name="pellet2" type="Node2D" parent="."]
+
+[node name="pellet" type="KinematicBody2D" parent="pellet2"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="pellet2/pellet"]
+modulate = Color( 0.623529, 0.623529, 0.623529, 1 )
+light_mask = 4
+position = Vector2( 2.38419e-07, -4.76837e-07 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet2/pellet"]
+shape = SubResource( 1 )
+
+[node name="pellet" type="Area2D" parent="pellet2/pellet"]
+collision_layer = 24
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet2/pellet/pellet"]
+shape = SubResource( 2 )
+
+[node name="attractionzone" type="Area2D" parent="pellet2/pellet"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet2/pellet/attractionzone"]
+rotation = 0.785398
+shape = SubResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="pellet2/pellet"]
+
+[node name="pellet3" type="Node2D" parent="."]
+
+[node name="pellet" type="KinematicBody2D" parent="pellet3"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="pellet3/pellet"]
+modulate = Color( 0.623529, 0.623529, 0.623529, 1 )
+light_mask = 4
+position = Vector2( 2.38419e-07, -4.76837e-07 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet3/pellet"]
+shape = SubResource( 1 )
+
+[node name="pellet" type="Area2D" parent="pellet3/pellet"]
+collision_layer = 24
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet3/pellet/pellet"]
+shape = SubResource( 2 )
+
+[node name="attractionzone" type="Area2D" parent="pellet3/pellet"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet3/pellet/attractionzone"]
+rotation = 0.785398
+shape = SubResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="pellet3/pellet"]
+
+[node name="pellet4" type="Node2D" parent="."]
+
+[node name="pellet" type="KinematicBody2D" parent="pellet4"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="pellet4/pellet"]
+modulate = Color( 0.623529, 0.623529, 0.623529, 1 )
+light_mask = 4
+position = Vector2( 2.38419e-07, -4.76837e-07 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet4/pellet"]
+shape = SubResource( 1 )
+
+[node name="pellet" type="Area2D" parent="pellet4/pellet"]
+collision_layer = 24
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet4/pellet/pellet"]
+shape = SubResource( 2 )
+
+[node name="attractionzone" type="Area2D" parent="pellet4/pellet"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet4/pellet/attractionzone"]
+rotation = 0.785398
+shape = SubResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="pellet4/pellet"]
+
+[node name="pellet5" type="Node2D" parent="."]
+
+[node name="pellet" type="KinematicBody2D" parent="pellet5"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="pellet5/pellet"]
+modulate = Color( 0.623529, 0.623529, 0.623529, 1 )
+light_mask = 4
+position = Vector2( 2.38419e-07, -4.76837e-07 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet5/pellet"]
+shape = SubResource( 1 )
+
+[node name="pellet" type="Area2D" parent="pellet5/pellet"]
+collision_layer = 24
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet5/pellet/pellet"]
+shape = SubResource( 2 )
+
+[node name="attractionzone" type="Area2D" parent="pellet5/pellet"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet5/pellet/attractionzone"]
+rotation = 0.785398
+shape = SubResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="pellet5/pellet"]
+
+[node name="pellet6" type="Node2D" parent="."]
+
+[node name="pellet" type="KinematicBody2D" parent="pellet6"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="pellet6/pellet"]
+modulate = Color( 0.623529, 0.623529, 0.623529, 1 )
+light_mask = 4
+position = Vector2( 2.38419e-07, -4.76837e-07 )
+scale = Vector2( 0.09, 0.09 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet6/pellet"]
+shape = SubResource( 1 )
+
+[node name="pellet" type="Area2D" parent="pellet6/pellet"]
+collision_layer = 24
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet6/pellet/pellet"]
+shape = SubResource( 2 )
+
+[node name="attractionzone" type="Area2D" parent="pellet6/pellet"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pellet6/pellet/attractionzone"]
+rotation = 0.785398
+shape = SubResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="pellet6/pellet"]
+
+[node name="shotgun" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = -4.0
+autoplay = true
+bus = "SFX"
+
+[connection signal="area_entered" from="pellet/pellet/pellet" to="pellet/pellet" method="_on_pellet_area_entered"]
+[connection signal="body_entered" from="pellet/pellet/pellet" to="pellet/pellet" method="_on_pellet_body_entered"]
+[connection signal="area_entered" from="pellet/pellet/attractionzone" to="pellet/pellet" method="_on_attractionzone_area_entered"]
+[connection signal="area_exited" from="pellet/pellet/attractionzone" to="pellet/pellet" method="_on_attractionzone_area_exited"]
+[connection signal="screen_exited" from="pellet/pellet/VisibilityNotifier2D" to="pellet/pellet" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="area_entered" from="pellet2/pellet/pellet" to="pellet2/pellet" method="_on_pellet_area_entered"]
+[connection signal="body_entered" from="pellet2/pellet/pellet" to="pellet2/pellet" method="_on_pellet_body_entered"]
+[connection signal="area_entered" from="pellet2/pellet/attractionzone" to="pellet2/pellet" method="_on_attractionzone_area_entered"]
+[connection signal="area_exited" from="pellet2/pellet/attractionzone" to="pellet2/pellet" method="_on_attractionzone_area_exited"]
+[connection signal="screen_exited" from="pellet2/pellet/VisibilityNotifier2D" to="pellet2/pellet" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="area_entered" from="pellet3/pellet/pellet" to="pellet3/pellet" method="_on_pellet_area_entered"]
+[connection signal="body_entered" from="pellet3/pellet/pellet" to="pellet3/pellet" method="_on_pellet_body_entered"]
+[connection signal="area_entered" from="pellet3/pellet/attractionzone" to="pellet3/pellet" method="_on_attractionzone_area_entered"]
+[connection signal="area_exited" from="pellet3/pellet/attractionzone" to="pellet3/pellet" method="_on_attractionzone_area_exited"]
+[connection signal="screen_exited" from="pellet3/pellet/VisibilityNotifier2D" to="pellet3/pellet" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="area_entered" from="pellet4/pellet/pellet" to="pellet4/pellet" method="_on_pellet_area_entered"]
+[connection signal="body_entered" from="pellet4/pellet/pellet" to="pellet4/pellet" method="_on_pellet_body_entered"]
+[connection signal="area_entered" from="pellet4/pellet/attractionzone" to="pellet4/pellet" method="_on_attractionzone_area_entered"]
+[connection signal="area_exited" from="pellet4/pellet/attractionzone" to="pellet4/pellet" method="_on_attractionzone_area_exited"]
+[connection signal="screen_exited" from="pellet4/pellet/VisibilityNotifier2D" to="pellet4/pellet" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="area_entered" from="pellet5/pellet/pellet" to="pellet5/pellet" method="_on_pellet_area_entered"]
+[connection signal="body_entered" from="pellet5/pellet/pellet" to="pellet5/pellet" method="_on_pellet_body_entered"]
+[connection signal="area_entered" from="pellet5/pellet/attractionzone" to="pellet5/pellet" method="_on_attractionzone_area_entered"]
+[connection signal="area_exited" from="pellet5/pellet/attractionzone" to="pellet5/pellet" method="_on_attractionzone_area_exited"]
+[connection signal="screen_exited" from="pellet5/pellet/VisibilityNotifier2D" to="pellet5/pellet" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="area_entered" from="pellet6/pellet/pellet" to="pellet6/pellet" method="_on_pellet_area_entered"]
+[connection signal="body_entered" from="pellet6/pellet/pellet" to="pellet6/pellet" method="_on_pellet_body_entered"]
+[connection signal="area_entered" from="pellet6/pellet/attractionzone" to="pellet6/pellet" method="_on_attractionzone_area_entered"]
+[connection signal="area_exited" from="pellet6/pellet/attractionzone" to="pellet6/pellet" method="_on_attractionzone_area_exited"]
+[connection signal="screen_exited" from="pellet6/pellet/VisibilityNotifier2D" to="pellet6/pellet" method="_on_VisibilityNotifier2D_screen_exited"]

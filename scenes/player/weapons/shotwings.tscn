@@ -1,0 +1,170 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://scenes/player/weapons/shotwings.gd" type="Script" id=1]
+[ext_resource path="res://scenes/player/weapons/assets/ball.png" type="Texture" id=2]
+[ext_resource path="res://scenes/player/weapons/wingspawned.gd" type="Script" id=3]
+[ext_resource path="res://scenes/player/weapons/assets/triangle.png" type="Texture" id=4]
+[ext_resource path="res://scenes/player/cards/audio/wings.ogg" type="AudioStream" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 3.0
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 210.623
+
+[sub_resource type="ParticlesMaterial" id=5]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+angular_velocity = 67.03
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[node name="shotwings" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="shotwing" type="Node2D" parent="."]
+
+[node name="shotwing" type="KinematicBody2D" parent="shotwing"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shotwing/shotwing"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="shotwing/shotwing"]
+modulate = Color( 0.556863, 0.556863, 0.556863, 1 )
+light_mask = 4
+position = Vector2( 0, 2.38419e-07 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 2 )
+
+[node name="shotwing" type="Area2D" parent="shotwing/shotwing"]
+collision_layer = 24
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shotwing/shotwing/shotwing"]
+rotation = 0.785398
+shape = SubResource( 4 )
+
+[node name="attractionzone" type="Area2D" parent="shotwing/shotwing"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shotwing/shotwing/attractionzone"]
+rotation = 0.785398
+shape = SubResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="shotwing/shotwing"]
+
+[node name="shotwing2" type="Node2D" parent="."]
+
+[node name="shotwing" type="KinematicBody2D" parent="shotwing2"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource( 1 )
+angle = 30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shotwing2/shotwing"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="shotwing2/shotwing"]
+modulate = Color( 0.556863, 0.556863, 0.556863, 1 )
+light_mask = 4
+position = Vector2( 0, 2.38419e-07 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 2 )
+
+[node name="shotwing" type="Area2D" parent="shotwing2/shotwing"]
+collision_layer = 24
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shotwing2/shotwing/shotwing"]
+rotation = 0.785398
+shape = SubResource( 4 )
+
+[node name="attractionzone" type="Area2D" parent="shotwing2/shotwing"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shotwing2/shotwing/attractionzone"]
+rotation = 0.785398
+shape = SubResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="shotwing2/shotwing"]
+
+[node name="shotwing3" type="Node2D" parent="."]
+
+[node name="shotwing" type="KinematicBody2D" parent="shotwing3"]
+collision_layer = 8
+collision_mask = 8
+script = ExtResource( 1 )
+angle = -30
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shotwing3/shotwing"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="shotwing3/shotwing"]
+modulate = Color( 0.556863, 0.556863, 0.556863, 1 )
+light_mask = 4
+position = Vector2( 0, 2.38419e-07 )
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 2 )
+
+[node name="shotwing" type="Area2D" parent="shotwing3/shotwing"]
+collision_layer = 24
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shotwing3/shotwing/shotwing"]
+rotation = 0.785398
+shape = SubResource( 4 )
+
+[node name="attractionzone" type="Area2D" parent="shotwing3/shotwing"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shotwing3/shotwing/attractionzone"]
+rotation = 0.785398
+shape = SubResource( 3 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="shotwing3/shotwing"]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+modulate = Color( 0.470588, 0.470588, 0.470588, 1 )
+scale = Vector2( 0.03, 0.03 )
+z_index = -2
+emitting = false
+amount = 10
+one_shot = true
+speed_scale = 10.0
+explosiveness = 0.75
+process_material = SubResource( 5 )
+texture = ExtResource( 4 )
+
+[node name="wingsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = -10.0
+autoplay = true
+bus = "SFX"
+
+[connection signal="area_entered" from="shotwing/shotwing/shotwing" to="shotwing/shotwing" method="_on_shotwing_area_entered"]
+[connection signal="body_entered" from="shotwing/shotwing/shotwing" to="shotwing/shotwing" method="_on_shotwing_body_entered"]
+[connection signal="area_entered" from="shotwing/shotwing/attractionzone" to="shotwing/shotwing" method="_on_attractionzone_area_entered"]
+[connection signal="area_exited" from="shotwing/shotwing/attractionzone" to="shotwing/shotwing" method="_on_attractionzone_area_exited"]
+[connection signal="screen_exited" from="shotwing/shotwing/VisibilityNotifier2D" to="shotwing/shotwing" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="area_entered" from="shotwing2/shotwing/shotwing" to="shotwing2/shotwing" method="_on_shotwing_area_entered"]
+[connection signal="body_entered" from="shotwing2/shotwing/shotwing" to="shotwing2/shotwing" method="_on_shotwing_body_entered"]
+[connection signal="area_entered" from="shotwing2/shotwing/attractionzone" to="shotwing2/shotwing" method="_on_attractionzone_area_entered"]
+[connection signal="area_exited" from="shotwing2/shotwing/attractionzone" to="shotwing2/shotwing" method="_on_attractionzone_area_exited"]
+[connection signal="screen_exited" from="shotwing2/shotwing/VisibilityNotifier2D" to="shotwing2/shotwing" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="area_entered" from="shotwing3/shotwing/shotwing" to="shotwing3/shotwing" method="_on_shotwing_area_entered"]
+[connection signal="body_entered" from="shotwing3/shotwing/shotwing" to="shotwing3/shotwing" method="_on_shotwing_body_entered"]
+[connection signal="area_entered" from="shotwing3/shotwing/attractionzone" to="shotwing3/shotwing" method="_on_attractionzone_area_entered"]
+[connection signal="area_exited" from="shotwing3/shotwing/attractionzone" to="shotwing3/shotwing" method="_on_attractionzone_area_exited"]
+[connection signal="screen_exited" from="shotwing3/shotwing/VisibilityNotifier2D" to="shotwing3/shotwing" method="_on_VisibilityNotifier2D_screen_exited"]

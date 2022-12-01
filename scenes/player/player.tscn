@@ -1,0 +1,1518 @@
+[gd_scene load_steps=84 format=2]
+
+[ext_resource path="res://scenes/player/assets/player.png" type="Texture" id=1]
+[ext_resource path="res://assets/1px.png" type="Texture" id=2]
+[ext_resource path="res://scenes/player/player.gd" type="Script" id=3]
+[ext_resource path="res://scenes/player/playercontroller.gd" type="Script" id=4]
+[ext_resource path="res://scenes/player/weapons/assets/triangle.png" type="Texture" id=5]
+[ext_resource path="res://scenes/player/weapons/assets/hexoutline.png" type="Texture" id=6]
+[ext_resource path="res://assets/controlleraid.png" type="Texture" id=7]
+[ext_resource path="res://scenes/player/hud/assets/Heart.png" type="Texture" id=8]
+[ext_resource path="res://scenes/player/hud/assets/HeartExtra.png" type="Texture" id=9]
+[ext_resource path="res://scenes/player/cards/card.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/player/hud/assets/upgradesmenu.png" type="Texture" id=11]
+[ext_resource path="res://scenes/player/cards/cardholder.gd" type="Script" id=12]
+[ext_resource path="res://assets/fonts/Neoneon.otf" type="DynamicFontData" id=13]
+[ext_resource path="res://assets/coin.png" type="Texture" id=14]
+[ext_resource path="res://scenes/player/enemiespawner.gd" type="Script" id=15]
+[ext_resource path="res://assets/Light.png" type="Texture" id=16]
+[ext_resource path="res://scenes/player/BGHUE.gd" type="Script" id=17]
+[ext_resource path="res://scenes/player/hud/assets/ProgressCircle.png" type="Texture" id=18]
+[ext_resource path="res://scenes/player/assets/shield.png" type="Texture" id=19]
+[ext_resource path="res://scenes/uncategorised/trail.tscn" type="PackedScene" id=20]
+[ext_resource path="res://assets/fonts/SalmaproMedium.otf" type="DynamicFontData" id=21]
+[ext_resource path="res://scenes/player/playershards.tscn" type="PackedScene" id=22]
+[ext_resource path="res://assets/fonts/ethnocentric rg it.otf" type="DynamicFontData" id=23]
+[ext_resource path="res://scenes/player/hud/dead/menu.png" type="Texture" id=24]
+[ext_resource path="res://scenes/player/hud/dead/restart.png" type="Texture" id=25]
+[ext_resource path="res://scenes/player/hud/dead/roundedsquare.png" type="Texture" id=26]
+[ext_resource path="res://scenes/player/deadbuttons.gd" type="Script" id=27]
+[ext_resource path="res://scenes/levels/levelelements/assets/shielditem.png" type="Texture" id=28]
+[ext_resource path="res://scenes/player/pausebuttons.gd" type="Script" id=29]
+[ext_resource path="res://scenes/player/cards/audio/timeheals.ogg" type="AudioStream" id=30]
+[ext_resource path="res://scenes/player/cards/audio/playerdamaged.ogg" type="AudioStream" id=31]
+[ext_resource path="res://scenes/player/cards/audio/unstoptime.ogg" type="AudioStream" id=32]
+[ext_resource path="res://scenes/player/cards/audio/stoptime.ogg" type="AudioStream" id=33]
+[ext_resource path="res://scenes/player/cards/audio/explosion.ogg" type="AudioStream" id=34]
+[ext_resource path="res://scenes/player/cards/assets/card.png" type="Texture" id=35]
+[ext_resource path="res://assets/Levels/levelmusic.ogg" type="AudioStream" id=36]
+[ext_resource path="res://assets/Levels/levelmusicloop.ogg" type="AudioStream" id=37]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 26.0
+
+[sub_resource type="CircleShape2D" id=21]
+radius = 277.002
+
+[sub_resource type="ParticlesMaterial" id=18]
+flag_disable_z = true
+direction = Vector3( 10, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+angular_velocity = 513.27
+angular_velocity_random = 0.71
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[sub_resource type="CircleShape2D" id=35]
+radius = 79.404
+
+[sub_resource type="DynamicFont" id=38]
+size = 96
+font_data = ExtResource( 21 )
+
+[sub_resource type="DynamicFont" id=37]
+size = 111
+font_data = ExtResource( 21 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 123
+font_data = ExtResource( 13 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 200, 366.667 )
+
+[sub_resource type="DynamicFont" id=49]
+size = 197
+font_data = ExtResource( 21 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 11.4, 256 )
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 21.4, 126.5 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 1094.17, 1256.67 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 1146.35, 1287.5 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 11, 11 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 11, 11, 11 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 22, 11, 11 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 11, 11 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 11, 11, 11 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 22, 11, 11 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=36]
+size = 80
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 13 )
+
+[sub_resource type="DynamicFont" id=25]
+size = 40
+outline_color = Color( 1, 1, 1, 0.631373 )
+font_data = ExtResource( 21 )
+
+[sub_resource type="DynamicFont" id=26]
+size = 224
+font_data = ExtResource( 23 )
+
+[sub_resource type="StyleBoxEmpty" id=28]
+
+[sub_resource type="StyleBoxEmpty" id=29]
+
+[sub_resource type="StyleBoxEmpty" id=30]
+
+[sub_resource type="StyleBoxEmpty" id=31]
+
+[sub_resource type="StyleBoxEmpty" id=32]
+
+[sub_resource type="Animation" id=33]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("1Px2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 3426, -2249 ) ]
+}
+
+[sub_resource type="Animation" id=34]
+resource_name = "slide"
+tracks/0/type = "value"
+tracks/0/path = NodePath("1Px2:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2011, -1353 ), Vector2( 922, 356 ) ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=43]
+
+[sub_resource type="StyleBoxEmpty" id=44]
+
+[sub_resource type="StyleBoxEmpty" id=45]
+
+[sub_resource type="StyleBoxEmpty" id=46]
+
+[sub_resource type="StyleBoxEmpty" id=47]
+
+[sub_resource type="Animation" id=40]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Roundedsquare:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -344, 1328 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pausebuttons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pausebuttons/Menu/pausemainmenu:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("pausebuttons/Restart/pauserestart:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "pause"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Roundedsquare:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -344, 1328 ), Vector2( 142, 1074 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("pausebuttons:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("pausebuttons/Menu/pausemainmenu:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("pausebuttons/Restart/pauserestart:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Curve" id=24]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Animation" id=19]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/hud/dead/1:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -824, 256 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/hud/dead/2:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 2064, 672 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/hud/dead/1Px:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1088, -600 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/hud/dead/1Px:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 9.7 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/hud/dead/Roundedsquare:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -344, 1428 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("body/hud/dead/buttons:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("body/hud/dead/buttons/Menu/mainmenu:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("body/hud/dead/buttons/Restart/restart:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "damageflash"
+length = 0.2
+step = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/Sprite:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.278431, 0.278431, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "game over"
+length = 2.0
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/hud/dead/1:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -824, 300 ), Vector2( 200, 300 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body/hud/dead/2:rect_position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2064, 600 ), Vector2( 2064, 600 ), Vector2( 700, 600 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body/hud/dead/1Px:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1088, -600 ), Vector2( 1088, -600 ), Vector2( 920, 608 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body/hud/dead/1Px:rotation_degrees")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 9.7 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("body/hud/dead/Roundedsquare:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.76, 1.29 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -344, 1428 ), Vector2( -344, 1428 ), Vector2( 112, 1188 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("body/hud/dead/buttons:modulate")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.51, 1.91 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("body/hud/dead/buttons/Menu/mainmenu:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.69, 1.74 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("body/hud/dead/buttons/Restart/restart:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1.69, 1.74 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+
+[sub_resource type="Animation" id=48]
+resource_name = "goldflash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/Sprite:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.917647, 0.87451, 0.0862745, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "healflash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("body/Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.745098, 0.290196, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Environment" id=23]
+background_mode = 4
+background_canvas_max_layer = 1000
+auto_exposure_scale = 1.14
+auto_exposure_min_luma = 0.0
+auto_exposure_speed = 0.56
+ssao_radius = 128.0
+ssao_intensity = 112.35
+ssao_radius2 = 114.08
+ssao_bias = 6.013
+ssao_light_affect = 1.0
+dof_blur_far_distance = 3.11
+dof_blur_far_transition = 6.97
+dof_blur_far_amount = 1.0
+dof_blur_near_enabled = true
+dof_blur_near_distance = 34.71
+dof_blur_near_transition = 247.06
+glow_enabled = true
+glow_strength = 1.08
+glow_bloom = 1.0
+adjustment_brightness = 0.01
+adjustment_contrast = 0.01
+adjustment_saturation = 8.0
+
+[node name="player" type="Node2D"]
+script = ExtResource( 3 )
+coins = 20
+
+[node name="body" type="KinematicBody2D" parent="."]
+z_index = 1
+collision_layer = 33
+collision_mask = 33
+script = ExtResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="body"]
+texture = ExtResource( 16 )
+energy = 1.4
+
+[node name="BG" type="Sprite" parent="body"]
+modulate = Color( 0.156863, 0, 0, 1 )
+position = Vector2( 80, 48 )
+scale = Vector2( 4000, 4000 )
+z_index = -10
+texture = ExtResource( 2 )
+script = ExtResource( 17 )
+
+[node name="Sprite" type="Sprite" parent="body"]
+light_mask = 0
+position = Vector2( -5.48363e-06, -5.48363e-06 )
+scale = Vector2( 0.2, 0.2 )
+z_index = 1
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body"]
+shape = SubResource( 1 )
+
+[node name="playerarea" type="Area2D" parent="body"]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="body/playerarea"]
+shape = SubResource( 2 )
+
+[node name="aura" type="Area2D" parent="body"]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/aura"]
+shape = SubResource( 21 )
+
+[node name="Camera2D" type="Camera2D" parent="body"]
+current = true
+limit_left = 0
+limit_top = 0
+limit_right = 3000
+limit_bottom = 2000
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 2.0
+drag_margin_left = 0.15
+drag_margin_top = 0.15
+drag_margin_right = 0.15
+drag_margin_bottom = 0.15
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="weapon" type="KinematicBody2D" parent="body"]
+collision_layer = 16
+collision_mask = 16
+
+[node name="hex" type="Sprite" parent="body/weapon"]
+light_mask = 0
+position = Vector2( 4.76837e-07, 1.43051e-06 )
+scale = Vector2( 0.26, 0.26 )
+texture = ExtResource( 6 )
+
+[node name="laser" type="Sprite" parent="body/weapon"]
+visible = false
+light_mask = 0
+position = Vector2( 30.8, 0 )
+rotation = 1.5708
+scale = Vector2( 0.150616, 0.150616 )
+texture = ExtResource( 5 )
+
+[node name="shotgun" type="Sprite" parent="body/weapon"]
+visible = false
+light_mask = 0
+position = Vector2( 35, -2.84217e-14 )
+rotation = -1.5708
+scale = Vector2( 0.135435, 0.135435 )
+texture = ExtResource( 5 )
+
+[node name="gun" type="Sprite" parent="body/weapon"]
+visible = false
+light_mask = 0
+position = Vector2( 24, 0 )
+scale = Vector2( 64, 22 )
+texture = ExtResource( 2 )
+
+[node name="contaid" type="Sprite" parent="body/weapon"]
+modulate = Color( 1, 0.25098, 0.25098, 0.380392 )
+rotation = 1.5708
+scale = Vector2( 0.12, 0.12 )
+texture = ExtResource( 7 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="body/weapon"]
+polygon = PoolVector2Array( 44, -25, 0, -50, -44, -25, -44, 26, 0, 51, 44, 25 )
+
+[node name="Particles2D" type="Particles2D" parent="body/weapon"]
+modulate = Color( 0.65098, 0.65098, 0.65098, 1 )
+scale = Vector2( 0.05, 0.05 )
+z_index = -2
+emitting = false
+amount = 6
+lifetime = 3.0
+one_shot = true
+speed_scale = 15.81
+explosiveness = 0.7
+process_material = SubResource( 18 )
+texture = ExtResource( 5 )
+
+[node name="backshield" type="Node2D" parent="body/weapon"]
+visible = false
+scale = Vector2( 0.8, 0.8 )
+
+[node name="backshield" type="Area2D" parent="body/weapon/backshield"]
+collision_layer = 32
+collision_mask = 32
+
+[node name="Sprite" type="Sprite" parent="body/weapon/backshield/backshield"]
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 19 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="body/weapon/backshield/backshield"]
+polygon = PoolVector2Array( -75, -66, -87, -50, -95, -32, -99, -15, -101, 0, -99, 16, -94, 36, -85, 53, -75, 67, -83, 35, -85, 15, -85, -1, -84, -21, -80, -45 )
+disabled = true
+
+[node name="backshieldkin" type="KinematicBody2D" parent="body/weapon/backshield"]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="body/weapon/backshield/backshieldkin"]
+polygon = PoolVector2Array( -75, -66, -86, -49, -93, -31, -99, 0, -97, 17, -94, 29, -87, 46, -75, 66, -83, 46, -87, 22, -88, 0, -87, -20, -84, -38, -80, -54 )
+disabled = true
+
+[node name="shielditem" type="Node2D" parent="body/weapon"]
+
+[node name="shieldit" type="Area2D" parent="body/weapon/shielditem"]
+collision_layer = 32
+collision_mask = 32
+
+[node name="Sprite" type="Sprite" parent="body/weapon/shielditem/shieldit"]
+visible = false
+light_mask = 0
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 28 )
+
+[node name="Collision" type="CollisionShape2D" parent="body/weapon/shielditem/shieldit"]
+shape = SubResource( 35 )
+
+[node name="upgrademenu" type="CanvasLayer" parent="body"]
+layer = 2
+
+[node name="upgradehints" type="Node2D" parent="body/upgrademenu"]
+visible = false
+z_index = 2
+
+[node name="weapons" type="Label" parent="body/upgrademenu/upgradehints"]
+modulate = Color( 1, 1, 1, 0.541176 )
+margin_left = 760.0
+margin_top = 384.0
+margin_right = 1760.0
+margin_bottom = 644.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = SubResource( 38 )
+text = "Weapons
+"
+align = 1
+autowrap = true
+
+[node name="weapons2" type="Label" parent="body/upgrademenu/upgradehints"]
+modulate = Color( 1, 1, 1, 0.541176 )
+margin_left = 168.0
+margin_top = 24.0
+margin_right = 1168.0
+margin_bottom = 284.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = SubResource( 38 )
+text = "Upgrades"
+align = 1
+autowrap = true
+
+[node name="weapons3" type="Label" parent="body/upgrademenu/upgradehints"]
+modulate = Color( 1, 1, 1, 0.541176 )
+margin_left = 1360.0
+margin_top = 24.0
+margin_right = 2360.0
+margin_bottom = 284.0
+rect_scale = Vector2( 0.4, 0.4 )
+custom_fonts/font = SubResource( 38 )
+text = "Enemy Downgrades"
+align = 1
+autowrap = true
+
+[node name="weapons4" type="Label" parent="body/upgrademenu/upgradehints"]
+modulate = Color( 1, 1, 1, 0.541176 )
+margin_left = 698.0
+margin_top = 104.0
+margin_right = 1379.0
+margin_bottom = 826.0
+rect_scale = Vector2( 0.35, 0.35 )
+custom_fonts/font = SubResource( 38 )
+text = "Click on a card to purchase it, and drag it into a slot to activate it."
+align = 1
+autowrap = true
+
+[node name="weapons5" type="Label" parent="body/upgrademenu/upgradehints"]
+modulate = Color( 1, 1, 1, 0.541176 )
+margin_left = 948.885
+margin_top = 221.833
+margin_right = 2248.88
+margin_bottom = 1034.83
+rect_scale = Vector2( 0.21, 0.21 )
+custom_fonts/font = SubResource( 38 )
+text = "Some cards work automatically, while others require  a button to activate.
+Hovering your mouse over a card will reveal how it works."
+align = 1
+autowrap = true
+
+[node name="Slots" type="Node2D" parent="body/upgrademenu"]
+modulate = Color( 1, 1, 1, 0.705882 )
+position = Vector2( 960, 540 )
+scale = Vector2( 0.24, 0.24 )
+z_index = 1
+
+[node name="Slot" type="Label" parent="body/upgrademenu/Slots"]
+margin_left = -3321.08
+margin_top = -1430.55
+margin_right = -3012.08
+margin_bottom = -1168.55
+custom_fonts/font = SubResource( 37 )
+text = "Card Slot"
+align = 1
+autowrap = true
+
+[node name="Slot2" type="Label" parent="body/upgrademenu/Slots"]
+margin_left = -2574.05
+margin_top = -1430.55
+margin_right = -2265.05
+margin_bottom = -1168.55
+custom_fonts/font = SubResource( 37 )
+text = "Card Slot"
+align = 1
+autowrap = true
+
+[node name="Slot3" type="Label" parent="body/upgrademenu/Slots"]
+margin_left = -1819.96
+margin_top = -1430.55
+margin_right = -1510.96
+margin_bottom = -1168.55
+custom_fonts/font = SubResource( 37 )
+text = "Card Slot"
+align = 1
+autowrap = true
+
+[node name="Slot4" type="Label" parent="body/upgrademenu/Slots"]
+margin_left = 1510.34
+margin_top = -1430.55
+margin_right = 1819.34
+margin_bottom = -1168.55
+custom_fonts/font = SubResource( 37 )
+text = "Card Slot"
+align = 1
+autowrap = true
+
+[node name="Slot5" type="Label" parent="body/upgrademenu/Slots"]
+margin_left = 2262.5
+margin_top = -1430.55
+margin_right = 2571.5
+margin_bottom = -1168.55
+custom_fonts/font = SubResource( 37 )
+text = "Card Slot"
+align = 1
+autowrap = true
+
+[node name="Slot6" type="Label" parent="body/upgrademenu/Slots"]
+margin_left = 3013.89
+margin_top = -1430.55
+margin_right = 3322.89
+margin_bottom = -1168.55
+custom_fonts/font = SubResource( 37 )
+text = "Card Slot"
+align = 1
+autowrap = true
+
+[node name="Slot7" type="Label" parent="body/upgrademenu/Slots"]
+margin_left = 345.373
+margin_top = 70.639
+margin_right = 654.374
+margin_bottom = 332.639
+custom_fonts/font = SubResource( 37 )
+text = "Card Slot"
+align = 1
+autowrap = true
+
+[node name="Slot8" type="Label" parent="body/upgrademenu/Slots"]
+margin_left = -654.701
+margin_top = 70.639
+margin_right = -345.7
+margin_bottom = 332.639
+custom_fonts/font = SubResource( 37 )
+text = "Card Slot"
+align = 1
+autowrap = true
+
+[node name="coins" type="Node2D" parent="body/upgrademenu"]
+position = Vector2( -708, 80 )
+z_index = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="coins" type="Label" parent="body/upgrademenu/coins"]
+margin_left = 1797.39
+margin_top = 16.214
+margin_right = 1862.39
+margin_bottom = 140.214
+grow_horizontal = 0
+custom_fonts/font = SubResource( 17 )
+text = "0"
+align = 3
+
+[node name="Coin" type="Sprite" parent="body/upgrademenu/coins"]
+position = Vector2( 1888, 64 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 14 )
+
+[node name="Sprite" type="Sprite" parent="body/upgrademenu"]
+visible = false
+modulate = Color( 0.0313726, 0.0313726, 0.0313726, 0.764706 )
+position = Vector2( 960, 540 )
+scale = Vector2( 1920, 1080 )
+texture = ExtResource( 2 )
+
+[node name="Upgrademenu" type="Sprite" parent="body/upgrademenu"]
+self_modulate = Color( 1, 1, 1, 0.882353 )
+position = Vector2( 960, 540 )
+scale = Vector2( 0.24, 0.24 )
+texture = ExtResource( 11 )
+
+[node name="weapon" type="Node2D" parent="body/upgrademenu/Upgrademenu"]
+position = Vector2( -4000, -2250 )
+scale = Vector2( 4.16667, 4.16667 )
+
+[node name="weapon" type="Area2D" parent="body/upgrademenu/Upgrademenu/weapon"]
+position = Vector2( 960, 540 )
+scale = Vector2( 0.24, 0.24 )
+collision_layer = 8192
+collision_mask = 8192
+script = ExtResource( 12 )
+
+[node name="collision" type="CollisionShape2D" parent="body/upgrademenu/Upgrademenu/weapon/weapon"]
+position = Vector2( -500, 208.333 )
+shape = SubResource( 12 )
+
+[node name="weapon2" type="Area2D" parent="body/upgrademenu/Upgrademenu/weapon"]
+position = Vector2( 960, 540 )
+scale = Vector2( 0.24, 0.24 )
+collision_layer = 8192
+collision_mask = 8192
+script = ExtResource( 12 )
+
+[node name="collision" type="CollisionShape2D" parent="body/upgrademenu/Upgrademenu/weapon/weapon2"]
+position = Vector2( 499.997, 208.332 )
+shape = SubResource( 12 )
+disabled = true
+
+[node name="Card" type="Sprite" parent="body/upgrademenu/Upgrademenu/weapon/weapon2"]
+self_modulate = Color( 0, 0, 0, 0.905882 )
+position = Vector2( 497.601, 209.859 )
+scale = Vector2( 0.426447, 0.431218 )
+z_index = 1
+texture = ExtResource( 35 )
+
+[node name="Label" type="Label" parent="body/upgrademenu/Upgrademenu/weapon/weapon2/Card"]
+self_modulate = Color( 1, 1, 1, 0.733333 )
+margin_left = -776.034
+margin_top = -448.02
+margin_right = 786.966
+margin_bottom = 396.98
+custom_fonts/font = SubResource( 49 )
+text = "Currently Unavailable."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="cards" type="Node2D" parent="body/upgrademenu/Upgrademenu/weapon"]
+z_index = 2
+
+[node name="1" parent="body/upgrademenu/Upgrademenu/weapon/cards" instance=ExtResource( 10 )]
+position = Vector2( 831.999, 851.999 )
+price = 15
+ability = 1
+
+[node name="3" parent="body/upgrademenu/Upgrademenu/weapon/cards" instance=ExtResource( 10 )]
+position = Vector2( 959.999, 851.999 )
+price = 250
+ability = 3
+
+[node name="2" parent="body/upgrademenu/Upgrademenu/weapon/cards" instance=ExtResource( 10 )]
+position = Vector2( 1088, 851.999 )
+price = 320
+ability = 2
+
+[node name="weaponcards" type="KinematicBody2D" parent="body/upgrademenu/Upgrademenu/weapon"]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/upgrademenu/Upgrademenu/weapon/weaponcards"]
+visible = false
+position = Vector2( 1062, 720 )
+scale = Vector2( 10, 1 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="body/upgrademenu/Upgrademenu/weapon/weaponcards"]
+visible = false
+position = Vector2( 962, 849.5 )
+scale = Vector2( 10, 1 )
+shape = SubResource( 15 )
+
+[node name="player" type="Node2D" parent="body/upgrademenu/Upgrademenu"]
+z_index = 2
+
+[node name="player" type="Area2D" parent="body/upgrademenu/Upgrademenu/player"]
+collision_layer = 4096
+collision_mask = 4096
+script = ExtResource( 12 )
+
+[node name="collision" type="CollisionShape2D" parent="body/upgrademenu/Upgrademenu/player/player"]
+position = Vector2( -3166.67, -1291.67 )
+shape = SubResource( 12 )
+
+[node name="player2" type="Area2D" parent="body/upgrademenu/Upgrademenu/player"]
+collision_layer = 4096
+collision_mask = 4096
+script = ExtResource( 12 )
+
+[node name="collision" type="CollisionShape2D" parent="body/upgrademenu/Upgrademenu/player/player2"]
+position = Vector2( -2416.67, -1283.33 )
+shape = SubResource( 12 )
+
+[node name="player3" type="Area2D" parent="body/upgrademenu/Upgrademenu/player"]
+collision_layer = 4096
+collision_mask = 4096
+script = ExtResource( 12 )
+
+[node name="collision" type="CollisionShape2D" parent="body/upgrademenu/Upgrademenu/player/player3"]
+position = Vector2( -1666.67, -1291.67 )
+shape = SubResource( 12 )
+
+[node name="cards" type="Node2D" parent="body/upgrademenu/Upgrademenu/player"]
+position = Vector2( -4000, -2250 )
+scale = Vector2( 4.16667, 4.16667 )
+
+[node name="4" parent="body/upgrademenu/Upgrademenu/player/cards" instance=ExtResource( 10 )]
+position = Vector2( 200, 472 )
+collision_mask = 0
+price = 100
+ability = 4
+
+[node name="6" parent="body/upgrademenu/Upgrademenu/player/cards" instance=ExtResource( 10 )]
+position = Vector2( 440, 472 )
+collision_mask = 0
+price = 60
+ability = 6
+
+[node name="5" parent="body/upgrademenu/Upgrademenu/player/cards" instance=ExtResource( 10 )]
+position = Vector2( 320, 472 )
+collision_mask = 0
+price = 60
+ability = 5
+
+[node name="7" parent="body/upgrademenu/Upgrademenu/player/cards" instance=ExtResource( 10 )]
+position = Vector2( 560, 472 )
+collision_mask = 0
+price = 40
+ability = 7
+
+[node name="12" parent="body/upgrademenu/Upgrademenu/player/cards" instance=ExtResource( 10 )]
+position = Vector2( 200, 664 )
+price = 55
+ability = 12
+
+[node name="14" parent="body/upgrademenu/Upgrademenu/player/cards" instance=ExtResource( 10 )]
+position = Vector2( 320, 664 )
+price = 160
+ability = 14
+
+[node name="15" parent="body/upgrademenu/Upgrademenu/player/cards" instance=ExtResource( 10 )]
+position = Vector2( 440, 663.999 )
+price = 100
+ability = 15
+
+[node name="16" parent="body/upgrademenu/Upgrademenu/player/cards" instance=ExtResource( 10 )]
+position = Vector2( 560, 664 )
+price = 30
+ability = 16
+
+[node name="19" parent="body/upgrademenu/Upgrademenu/player/cards" instance=ExtResource( 10 )]
+position = Vector2( 200, 855.999 )
+price = 80
+ability = 19
+
+[node name="playercards" type="KinematicBody2D" parent="body/upgrademenu/Upgrademenu/player"]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/upgrademenu/Upgrademenu/player/playercards"]
+visible = false
+position = Vector2( -2427.5, 560 )
+shape = SubResource( 13 )
+
+[node name="enemy" type="Node2D" parent="body/upgrademenu/Upgrademenu"]
+z_index = 2
+
+[node name="enemy" type="Area2D" parent="body/upgrademenu/Upgrademenu/enemy"]
+position = Vector2( 4833.34, -16.6667 )
+collision_layer = 16384
+collision_mask = 16384
+script = ExtResource( 12 )
+
+[node name="collision" type="CollisionShape2D" parent="body/upgrademenu/Upgrademenu/enemy/enemy"]
+position = Vector2( -3166.67, -1275 )
+shape = SubResource( 12 )
+
+[node name="enemy2" type="Area2D" parent="body/upgrademenu/Upgrademenu/enemy"]
+position = Vector2( 4833.34, -16.6667 )
+collision_layer = 16384
+collision_mask = 16384
+script = ExtResource( 12 )
+
+[node name="collision" type="CollisionShape2D" parent="body/upgrademenu/Upgrademenu/enemy/enemy2"]
+position = Vector2( -1666.67, -1275 )
+shape = SubResource( 12 )
+
+[node name="enemy3" type="Area2D" parent="body/upgrademenu/Upgrademenu/enemy"]
+position = Vector2( 4833.34, -16.6667 )
+collision_layer = 16384
+collision_mask = 16384
+script = ExtResource( 12 )
+
+[node name="collision" type="CollisionShape2D" parent="body/upgrademenu/Upgrademenu/enemy/enemy3"]
+position = Vector2( -2416.67, -1275 )
+shape = SubResource( 12 )
+
+[node name="cards" type="Node2D" parent="body/upgrademenu/Upgrademenu/enemy"]
+position = Vector2( -4000, -2250 )
+scale = Vector2( 4.16667, 4.16667 )
+
+[node name="8" parent="body/upgrademenu/Upgrademenu/enemy/cards" instance=ExtResource( 10 )]
+position = Vector2( 1360, 472 )
+price = 90
+ability = 8
+
+[node name="9" parent="body/upgrademenu/Upgrademenu/enemy/cards" instance=ExtResource( 10 )]
+position = Vector2( 1480, 472 )
+price = 40
+ability = 9
+
+[node name="10" parent="body/upgrademenu/Upgrademenu/enemy/cards" instance=ExtResource( 10 )]
+position = Vector2( 1600, 472 )
+price = 100
+ability = 10
+
+[node name="11" parent="body/upgrademenu/Upgrademenu/enemy/cards" instance=ExtResource( 10 )]
+position = Vector2( 1720, 472 )
+price = 110
+ability = 11
+
+[node name="13" parent="body/upgrademenu/Upgrademenu/enemy/cards" instance=ExtResource( 10 )]
+position = Vector2( 1360, 664 )
+price = 90
+ability = 13
+
+[node name="17" parent="body/upgrademenu/Upgrademenu/enemy/cards" instance=ExtResource( 10 )]
+position = Vector2( 1480, 664 )
+price = 60
+ability = 17
+
+[node name="18" parent="body/upgrademenu/Upgrademenu/enemy/cards" instance=ExtResource( 10 )]
+position = Vector2( 1600, 664 )
+price = 120
+ability = 18
+
+[node name="20" parent="body/upgrademenu/Upgrademenu/enemy/cards" instance=ExtResource( 10 )]
+position = Vector2( 1720, 664 )
+price = 80
+ability = 20
+
+[node name="21" parent="body/upgrademenu/Upgrademenu/enemy/cards" instance=ExtResource( 10 )]
+position = Vector2( 1360, 855.999 )
+price = 120
+ability = 21
+
+[node name="enemycards" type="KinematicBody2D" parent="body/upgrademenu/Upgrademenu/enemy"]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body/upgrademenu/Upgrademenu/enemy/enemycards"]
+visible = false
+position = Vector2( 2420.31, 562.5 )
+shape = SubResource( 16 )
+
+[node name="hud" type="CanvasLayer" parent="body"]
+
+[node name="hearts" type="Node2D" parent="body/hud"]
+
+[node name="1" type="AnimatedSprite" parent="body/hud/hearts"]
+position = Vector2( 64, 208 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 7 )
+
+[node name="Light" type="Light2D" parent="body/hud/hearts/1"]
+visible = false
+position = Vector2( 0, -1 )
+scale = Vector2( 5.4, 5.4 )
+texture = ExtResource( 16 )
+texture_scale = 0.01
+color = Color( 1, 0, 0, 1 )
+energy = 2.0
+
+[node name="2" type="AnimatedSprite" parent="body/hud/hearts"]
+position = Vector2( 64, 160 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 7 )
+
+[node name="Light" type="Light2D" parent="body/hud/hearts/2"]
+visible = false
+position = Vector2( 0, -1 )
+scale = Vector2( 5.4, 5.4 )
+texture = ExtResource( 16 )
+texture_scale = 0.01
+color = Color( 1, 0, 0, 1 )
+energy = 2.0
+
+[node name="3" type="AnimatedSprite" parent="body/hud/hearts"]
+position = Vector2( 64, 112 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 7 )
+
+[node name="Light" type="Light2D" parent="body/hud/hearts/3"]
+visible = false
+position = Vector2( 0, -1 )
+scale = Vector2( 5.4, 5.4 )
+texture = ExtResource( 16 )
+texture_scale = 0.01
+color = Color( 1, 0, 0, 1 )
+energy = 2.0
+
+[node name="4" type="AnimatedSprite" parent="body/hud/hearts"]
+position = Vector2( 64, 64 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 11 )
+
+[node name="Light" type="Light2D" parent="body/hud/hearts/4"]
+visible = false
+position = Vector2( 0, -1 )
+scale = Vector2( 5.4, 5.4 )
+texture = ExtResource( 16 )
+texture_scale = 0.01
+color = Color( 0, 1, 0.00392157, 1 )
+energy = 2.0
+
+[node name="coins" type="Node2D" parent="body/hud"]
+
+[node name="coins" type="Label" parent="body/hud/coins"]
+margin_left = 1824.0
+margin_top = 32.0
+margin_right = 1866.0
+margin_bottom = 112.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 36 )
+text = "0"
+align = 3
+
+[node name="Coin" type="Sprite" parent="body/hud/coins"]
+position = Vector2( 1888, 64 )
+scale = Vector2( 0.06, 0.06 )
+texture = ExtResource( 14 )
+
+[node name="TextureProgress" type="TextureProgress" parent="body/hud"]
+visible = false
+modulate = Color( 0.384314, 0.384314, 0.384314, 1 )
+margin_left = 1816.0
+margin_top = 109.0
+margin_right = 2649.0
+margin_bottom = 942.0
+rect_scale = Vector2( 0.1, 0.1 )
+value = 64.0
+texture_under = ExtResource( 18 )
+texture_progress = ExtResource( 18 )
+fill_mode = 4
+tint_under = Color( 0.396078, 0.396078, 0.396078, 0.411765 )
+
+[node name="score" type="Node2D" parent="body/hud"]
+
+[node name="score" type="Label" parent="body/hud/score"]
+margin_left = 1736.0
+margin_top = 112.0
+margin_right = 1904.0
+margin_bottom = 160.0
+grow_horizontal = 0
+custom_fonts/font = SubResource( 25 )
+text = "0"
+align = 2
+
+[node name="dead" type="Node2D" parent="body/hud"]
+position = Vector2( 0, -100 )
+z_index = 1924
+
+[node name="1Px" type="Sprite" parent="body/hud/dead"]
+modulate = Color( 0, 0, 0, 0.607843 )
+position = Vector2( 1088, -600 )
+rotation = 0.169297
+scale = Vector2( 3001.06, 692.25 )
+texture = ExtResource( 2 )
+
+[node name="1" type="Label" parent="body/hud/dead"]
+margin_left = -824.0
+margin_top = 256.0
+margin_right = 234.0
+margin_bottom = 670.0
+custom_fonts/font = SubResource( 26 )
+text = "YOU"
+
+[node name="2" type="Label" parent="body/hud/dead"]
+margin_left = 2064.0
+margin_top = 672.0
+margin_right = 3437.0
+margin_bottom = 1086.0
+custom_fonts/font = SubResource( 26 )
+text = "LOSE!"
+
+[node name="Roundedsquare" type="Sprite" parent="body/hud/dead"]
+visible = false
+modulate = Color( 0, 0, 0, 0.592157 )
+position = Vector2( -344, 1428 )
+texture = ExtResource( 26 )
+
+[node name="buttons" type="Node2D" parent="body/hud/dead"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+script = ExtResource( 27 )
+
+[node name="Menu" type="Sprite" parent="body/hud/dead/buttons"]
+position = Vector2( 131.3, 1063.3 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 24 )
+
+[node name="mainmenu" type="Button" parent="body/hud/dead/buttons/Menu"]
+margin_left = -336.0
+margin_top = -336.0
+margin_right = 342.0
+margin_bottom = 338.0
+rect_rotation = 0.0197421
+custom_styles/hover = SubResource( 28 )
+custom_styles/pressed = SubResource( 29 )
+custom_styles/focus = SubResource( 30 )
+custom_styles/disabled = SubResource( 31 )
+custom_styles/normal = SubResource( 32 )
+disabled = true
+flat = true
+
+[node name="Restart" type="Sprite" parent="body/hud/dead/buttons"]
+position = Vector2( 307.3, 1063.3 )
+scale = Vector2( 0.155642, 0.155642 )
+texture = ExtResource( 25 )
+
+[node name="restart" type="Button" parent="body/hud/dead/buttons/Restart"]
+margin_left = -381.0
+margin_top = -381.0
+margin_right = 390.0
+margin_bottom = 390.0
+custom_styles/hover = SubResource( 28 )
+custom_styles/pressed = SubResource( 29 )
+custom_styles/focus = SubResource( 30 )
+custom_styles/disabled = SubResource( 31 )
+custom_styles/normal = SubResource( 32 )
+disabled = true
+flat = true
+
+[node name="1Px2" type="Sprite" parent="body/hud/dead"]
+modulate = Color( 0.0666667, 0, 0.0666667, 1 )
+position = Vector2( 3426, -2249 )
+rotation = 0.445059
+scale = Vector2( 3056.21, 2502.68 )
+texture = ExtResource( 2 )
+
+[node name="menutransition" type="AnimationPlayer" parent="body/hud/dead"]
+anims/RESET = SubResource( 33 )
+anims/slide = SubResource( 34 )
+
+[node name="pause" type="Node2D" parent="body/hud"]
+
+[node name="Roundedsquare" type="Sprite" parent="body/hud/pause"]
+modulate = Color( 0, 0, 0, 0.592157 )
+position = Vector2( -344, 1328 )
+texture = ExtResource( 26 )
+
+[node name="pausebuttons" type="Node2D" parent="body/hud/pause"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 14.009, 0 )
+script = ExtResource( 29 )
+
+[node name="Menu" type="Sprite" parent="body/hud/pause/pausebuttons"]
+position = Vector2( 131.3, 950.637 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 24 )
+
+[node name="pausemainmenu" type="Button" parent="body/hud/pause/pausebuttons/Menu"]
+margin_left = -321.545
+margin_top = -298.186
+margin_right = 358.455
+margin_bottom = 326.814
+custom_styles/hover = SubResource( 43 )
+custom_styles/pressed = SubResource( 44 )
+custom_styles/focus = SubResource( 45 )
+custom_styles/disabled = SubResource( 46 )
+custom_styles/normal = SubResource( 47 )
+disabled = true
+flat = true
+
+[node name="Restart" type="Sprite" parent="body/hud/pause/pausebuttons"]
+position = Vector2( 307.3, 950.637 )
+scale = Vector2( 0.155642, 0.155642 )
+texture = ExtResource( 25 )
+
+[node name="pauserestart" type="Button" parent="body/hud/pause/pausebuttons/Restart"]
+margin_left = -375.0
+margin_top = -351.0
+margin_right = 415.0
+margin_bottom = 388.0
+custom_styles/hover = SubResource( 43 )
+custom_styles/pressed = SubResource( 44 )
+custom_styles/focus = SubResource( 45 )
+custom_styles/disabled = SubResource( 46 )
+custom_styles/normal = SubResource( 47 )
+disabled = true
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="body/hud/pause"]
+anims/RESET = SubResource( 40 )
+anims/pause = SubResource( 39 )
+
+[node name="trail" parent="body" instance=ExtResource( 20 )]
+modulate = Color( 1, 1, 1, 0.239216 )
+width = 40.0
+width_curve = SubResource( 24 )
+default_color = Color( 1, 1, 1, 1 )
+length = 20
+
+[node name="playershards" parent="body" instance=ExtResource( 22 )]
+visible = false
+
+[node name="audio" type="Node2D" parent="body"]
+
+[node name="timeheals" type="AudioStreamPlayer2D" parent="body/audio"]
+stream = ExtResource( 30 )
+volume_db = 4.0
+bus = "SFX"
+
+[node name="playerdamaged" type="AudioStreamPlayer2D" parent="body/audio"]
+stream = ExtResource( 31 )
+bus = "SFX"
+
+[node name="playerexplosion" type="AudioStreamPlayer2D" parent="body/audio"]
+stream = ExtResource( 34 )
+volume_db = -5.0
+bus = "SFX"
+
+[node name="enemiespawner" type="Node2D" parent="."]
+script = ExtResource( 15 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 19 )
+anims/damageflash = SubResource( 20 )
+"anims/game over" = SubResource( 27 )
+anims/goldflash = SubResource( 48 )
+anims/healflash = SubResource( 22 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 23 )
+
+[node name="audio" type="Node2D" parent="."]
+
+[node name="stoptime" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 33 )
+volume_db = -8.0
+bus = "SFX"
+
+[node name="unstoptime" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 32 )
+volume_db = -8.0
+bus = "SFX"
+
+[node name="levelaudioloop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 37 )
+volume_db = -10.0
+bus = "Music"
+
+[node name="levelaudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 36 )
+volume_db = -10.0
+autoplay = true
+bus = "Music"
+
+[connection signal="area_entered" from="body/playerarea" to="." method="_on_playerarea_area_entered"]
+[connection signal="area_entered" from="body/aura" to="." method="_on_aura_area_entered"]
+[connection signal="area_exited" from="body/aura" to="." method="_on_aura_area_exited"]
+[connection signal="area_entered" from="body/weapon/shielditem/shieldit" to="." method="_on_shieldit_area_entered"]
+[connection signal="mouse_entered" from="body/hud/dead/buttons/Menu/mainmenu" to="body/hud/dead/buttons" method="_on_mainmenu_mouse_entered"]
+[connection signal="mouse_exited" from="body/hud/dead/buttons/Menu/mainmenu" to="body/hud/dead/buttons" method="_on_mainmenu_mouse_exited"]
+[connection signal="pressed" from="body/hud/dead/buttons/Menu/mainmenu" to="body/hud/dead/buttons" method="_on_mainmenu_pressed"]
+[connection signal="mouse_entered" from="body/hud/dead/buttons/Restart/restart" to="body/hud/dead/buttons" method="_on_restart_mouse_entered"]
+[connection signal="mouse_exited" from="body/hud/dead/buttons/Restart/restart" to="body/hud/dead/buttons" method="_on_restart_mouse_exited"]
+[connection signal="pressed" from="body/hud/dead/buttons/Restart/restart" to="body/hud/dead/buttons" method="_on_restart_pressed"]
+[connection signal="mouse_entered" from="body/hud/pause/pausebuttons/Menu/pausemainmenu" to="body/hud/pause/pausebuttons" method="_on_pausemainmenu_mouse_entered"]
+[connection signal="mouse_exited" from="body/hud/pause/pausebuttons/Menu/pausemainmenu" to="body/hud/pause/pausebuttons" method="_on_pausemainmenu_mouse_exited"]
+[connection signal="pressed" from="body/hud/pause/pausebuttons/Menu/pausemainmenu" to="body/hud/pause/pausebuttons" method="_on_pausemainmenu_pressed"]
+[connection signal="mouse_entered" from="body/hud/pause/pausebuttons/Restart/pauserestart" to="body/hud/pause/pausebuttons" method="_on_pauserestart_mouse_entered"]
+[connection signal="mouse_exited" from="body/hud/pause/pausebuttons/Restart/pauserestart" to="body/hud/pause/pausebuttons" method="_on_pauserestart_mouse_exited"]
+[connection signal="pressed" from="body/hud/pause/pausebuttons/Restart/pauserestart" to="body/hud/pause/pausebuttons" method="_on_pauserestart_pressed"]
+[connection signal="finished" from="levelaudio" to="." method="_on_levelaudio_finished"]

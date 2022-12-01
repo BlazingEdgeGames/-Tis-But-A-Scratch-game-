@@ -1,0 +1,672 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Levels/levelbg.png" type="Texture" id=2]
+[ext_resource path="res://assets/Levels/levelbounds.png" type="Texture" id=3]
+[ext_resource path="res://scenes/levels/tutorial.gd" type="Script" id=4]
+[ext_resource path="res://scenes/levels/levelelements/itemspawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/levels/assets/focusholethingy.png" type="Texture" id=6]
+[ext_resource path="res://scenes/levels/assets/WASD.png" type="Texture" id=7]
+[ext_resource path="res://scenes/levels/assets/arrowkeys.png" type="Texture" id=8]
+[ext_resource path="res://assets/fonts/SalmaproMedium.otf" type="DynamicFontData" id=9]
+[ext_resource path="res://assets/1px.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 988, 25 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 96
+font_data = ExtResource( 9 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Focusholethingy:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 15, 15 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/movement/this is you:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/movement/use wasd:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("player/body:walk")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/1Px:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -375, 2141 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CanvasLayer/purchase1/enemies will spawn:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CanvasLayer/purchase1/press e:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("CanvasLayer/purchase2/this is the menu:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CanvasLayer/purchase2/Here you can upgrade:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CanvasLayer/purchase2/try purchasing:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CanvasLayer/purchase2/threedots:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("CanvasLayer/purchase2/you broke:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CanvasLayer/purchase2/take my money:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("player:coins")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("CanvasLayer/Focusholethingy:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 832, 853 ) ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("CanvasLayer/purchase2/and drag:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "movement"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/movement/this is you:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.1, 1.6, 2.6, 3.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/movement/use wasd:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3.6, 4.1, 6.6, 7.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("player/body:walk")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 7.7, 7.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 0, 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/Focusholethingy:scale")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 8.2 ),
+"transitions": PoolRealArray( 2.73208, 48.5027, 1 ),
+"update": 0,
+"values": [ Vector2( 15, 15 ), Vector2( 1, 1 ), Vector2( 15, 15 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "purchase1"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("player/body:walk")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/1Px:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 8.3, 9.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -218, 2219 ), Vector2( 1049.32, 589.225 ), Vector2( 942, 517 ), Vector2( 2318, -1208 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/purchase1/enemies will spawn:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5, 1, 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/purchase1/press e:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 4.53632, 5, 7.4, 7.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "purchase2"
+length = 35.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/1Px:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 12, 12.5, 15.5, 16, 27, 27.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -218, 2219 ), Vector2( 947, 566 ), Vector2( 947, 566 ), Vector2( -1440, -780 ), Vector2( -1440, -780 ), Vector2( 727, 399 ), Vector2( 727, 399 ), Vector2( 3322, 1807 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/purchase2/this is the menu:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 1.5, 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/purchase2/Here you can upgrade:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 4.5, 5.1, 6.9, 7.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/purchase2/try purchasing:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 8.5, 9, 10.9, 11.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/purchase2/threedots:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 16.5, 17, 18.4, 19 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CanvasLayer/purchase2/you broke:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 20, 20.5, 22.1, 22.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CanvasLayer/purchase2/take my money:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 23.5, 24, 25.8, 26.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("player:coins")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 27.7, 28.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 5 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("CanvasLayer/Focusholethingy:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 28.4, 29.2, 31.5, 32.5, 34, 34.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 954, 525 ), Vector2( 832, 853 ), Vector2( 832, 853 ), Vector2( 840, 592 ), Vector2( 840, 592 ), Vector2( 957, 536 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("CanvasLayer/Focusholethingy:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 28.4, 29.2, 31.5, 32.5, 34, 34.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 15, 15 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1.5, 1.5 ), Vector2( 15, 15 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("CanvasLayer/purchase2/and drag:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 30.5, 31, 33.7, 34.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="tutorial" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 953, 525 )
+coins = 0
+
+[node name="body" parent="player" index="0"]
+walk = 0
+
+[node name="Camera2D" parent="player/body" index="6"]
+limit_right = 1920
+limit_bottom = 1080
+
+[node name="1Px" type="Sprite" parent="player/body" index="12"]
+position = Vector2( 1325, -178 )
+texture = ExtResource( 10 )
+
+[node name="wall" type="StaticBody2D" parent="."]
+collision_layer = 17
+collision_mask = 17
+
+[node name="Light" type="Light2D" parent="wall"]
+position = Vector2( 960, 540 )
+scale = Vector2( 0.64, 0.54 )
+texture = ExtResource( 3 )
+energy = 3.0
+
+[node name="Light2D" type="Light2D" parent="wall"]
+position = Vector2( 1064, 648 )
+scale = Vector2( 1.06804, 1.048 )
+texture = ExtResource( 2 )
+energy = 2.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+position = Vector2( 944, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="wall"]
+position = Vector2( 1912, 600 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="wall"]
+position = Vector2( 8, 624 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wall"]
+position = Vector2( 992, 1080 )
+shape = SubResource( 1 )
+
+[node name="itemspawner" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1705, 229 )
+type = 2
+
+[node name="itemspawner2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 210, 858 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="movement" type="Node2D" parent="CanvasLayer"]
+
+[node name="this is you" type="Label" parent="CanvasLayer/movement"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1246.0
+margin_top = 737.0
+margin_right = 1760.0
+margin_bottom = 965.0
+custom_fonts/font = SubResource( 4 )
+text = "This. 
+This is you."
+
+[node name="use wasd" type="Label" parent="CanvasLayer/movement"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 128.0
+margin_top = 118.0
+margin_right = 767.0
+margin_bottom = 931.0
+custom_fonts/font = SubResource( 4 )
+text = "To move , use
+
+
+ or
+
+
+"
+align = 1
+
+[node name="Wasd" type="Sprite" parent="CanvasLayer/movement/use wasd"]
+position = Vector2( 327.513, 247.618 )
+scale = Vector2( 0.4, 0.4 )
+z_index = 101
+texture = ExtResource( 7 )
+
+[node name="Arrowkeys" type="Sprite" parent="CanvasLayer/movement/use wasd"]
+position = Vector2( 332.672, 573.506 )
+scale = Vector2( 0.4, 0.44 )
+z_index = 101
+texture = ExtResource( 8 )
+
+[node name="1Px" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 0, 0, 0, 0.705882 )
+position = Vector2( -375, 2141 )
+rotation = 2.0368
+scale = Vector2( 2058.01, 2964.94 )
+texture = ExtResource( 10 )
+
+[node name="Focusholethingy" type="Sprite" parent="CanvasLayer"]
+self_modulate = Color( 0, 0, 0, 0.533333 )
+position = Vector2( 832, 853 )
+scale = Vector2( 15, 15 )
+z_index = 100
+texture = ExtResource( 6 )
+
+[node name="purchase1" type="Node2D" parent="CanvasLayer"]
+
+[node name="enemies will spawn" type="Label" parent="CanvasLayer/purchase1"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 92.0
+margin_top = 659.0
+margin_right = 801.0
+margin_bottom = 1121.0
+custom_fonts/font = SubResource( 4 )
+text = "Enemies will start spawning soon..."
+autowrap = true
+
+[node name="press e" type="Label" parent="CanvasLayer/purchase1"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1078.0
+margin_top = 144.0
+margin_right = 1787.0
+margin_bottom = 606.0
+custom_fonts/font = SubResource( 4 )
+text = "Press \"E\" or \"Tab\" to open the upgrades menu."
+autowrap = true
+
+[node name="purchase2" type="Node2D" parent="CanvasLayer"]
+
+[node name="this is the menu" type="Label" parent="CanvasLayer/purchase2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 106.0
+margin_top = 97.0
+margin_right = 815.0
+margin_bottom = 559.0
+custom_fonts/font = SubResource( 4 )
+text = "This is the upgrade menu."
+autowrap = true
+
+[node name="Here you can upgrade" type="Label" parent="CanvasLayer/purchase2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 643.0
+margin_top = 298.0
+margin_right = 1352.0
+margin_bottom = 760.0
+custom_fonts/font = SubResource( 4 )
+text = "Here you can upgrade your gear and equipment."
+autowrap = true
+
+[node name="try purchasing" type="Label" parent="CanvasLayer/purchase2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1124.0
+margin_top = 533.0
+margin_right = 1833.0
+margin_bottom = 995.0
+custom_fonts/font = SubResource( 4 )
+text = "Try purchasing something by clicking on it's card."
+autowrap = true
+
+[node name="threedots" type="Label" parent="CanvasLayer/purchase2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 505.0
+margin_top = 207.0
+margin_right = 1214.0
+margin_bottom = 669.0
+custom_fonts/font = SubResource( 4 )
+text = "..."
+autowrap = true
+
+[node name="you broke" type="Label" parent="CanvasLayer/purchase2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 340.0
+margin_top = 452.0
+margin_right = 1049.0
+margin_bottom = 914.0
+custom_fonts/font = SubResource( 4 )
+text = "...Heh, looks like you're broke..."
+autowrap = true
+
+[node name="take my money" type="Label" parent="CanvasLayer/purchase2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1128.0
+margin_top = 164.0
+margin_right = 1837.0
+margin_bottom = 743.0
+custom_fonts/font = SubResource( 4 )
+text = "Here, I'll lend you some money to purchase the cannon."
+autowrap = true
+
+[node name="and drag" type="Label" parent="CanvasLayer/purchase2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 1157.0
+margin_top = 264.0
+margin_right = 1747.0
+margin_bottom = 677.0
+custom_fonts/font = SubResource( 4 )
+text = "Then drag it to the slot to equip it."
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 2 )
+anims/movement = SubResource( 3 )
+anims/purchase1 = SubResource( 5 )
+anims/purchase2 = SubResource( 6 )
+
+[editable path="player"]

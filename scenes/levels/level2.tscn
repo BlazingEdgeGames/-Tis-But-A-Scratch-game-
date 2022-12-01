@@ -1,0 +1,122 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/1px.png" type="Texture" id=1]
+[ext_resource path="res://assets/Levels/levelbg.png" type="Texture" id=2]
+[ext_resource path="res://assets/Levels/levelbounds.png" type="Texture" id=3]
+[ext_resource path="res://scenes/player/player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/levels/level2.gd" type="Script" id=5]
+[ext_resource path="res://scenes/levels/levelelements/itemspawner.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/levels/levelelements/rectwall.tscn" type="PackedScene" id=7]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1500, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 1000 )
+
+[node name="Level2" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1512, 1008 )
+
+[node name="wall" type="StaticBody2D" parent="."]
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+position = Vector2( 1500, 32 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wall"]
+position = Vector2( 1500, 1968 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="wall"]
+position = Vector2( 32, 1000 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="wall"]
+position = Vector2( 2968, 1000 )
+shape = SubResource( 2 )
+
+[node name="1Px" type="Sprite" parent="wall"]
+visible = false
+modulate = Color( 0.356863, 0.32549, 0.407843, 1 )
+position = Vector2( 2352, 208 )
+scale = Vector2( 3000, 64 )
+texture = ExtResource( 1 )
+offset = Vector2( -0.284, -2.75 )
+
+[node name="1Px3" type="Sprite" parent="wall"]
+visible = false
+modulate = Color( 0.356863, 0.32549, 0.407843, 1 )
+position = Vector2( 50.176, 6500 )
+scale = Vector2( 64, 2000 )
+texture = ExtResource( 1 )
+offset = Vector2( -0.284, -2.75 )
+
+[node name="1Px4" type="Sprite" parent="wall"]
+visible = false
+modulate = Color( 0.356863, 0.32549, 0.407843, 1 )
+position = Vector2( 2986.18, 6500 )
+scale = Vector2( 64.0002, 2000 )
+texture = ExtResource( 1 )
+offset = Vector2( -0.284, -2.75 )
+
+[node name="1Px2" type="Sprite" parent="wall"]
+visible = false
+modulate = Color( 0.356863, 0.32549, 0.407843, 1 )
+position = Vector2( 2352, 2144 )
+scale = Vector2( 3000, 64 )
+texture = ExtResource( 1 )
+offset = Vector2( -0.284, -2.75 )
+
+[node name="Light" type="Light2D" parent="wall"]
+position = Vector2( 1500, 1000 )
+scale = Vector2( 0.994667, 0.976 )
+texture = ExtResource( 3 )
+energy = 3.0
+
+[node name="Light2D" type="Light2D" parent="wall"]
+position = Vector2( 1500, 1000 )
+scale = Vector2( 1.06804, 1.048 )
+texture = ExtResource( 2 )
+energy = 2.0
+
+[node name="itemspawner" parent="." instance=ExtResource( 6 )]
+position = Vector2( 700, 600 )
+
+[node name="itemspawner2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2300, 600 )
+type = 2
+
+[node name="itemspawner3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 700, 1400 )
+
+[node name="itemspawner4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2300, 1400 )
+type = 2
+
+[node name="rectwall" parent="." instance=ExtResource( 7 )]
+position = Vector2( 800, 1000 )
+scale = Vector2( 0.8, 5 )
+move = true
+direction = 90
+
+[node name="rectwall2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2200, 1000 )
+scale = Vector2( 0.8, 5 )
+move = true
+direction = -90
+
+[node name="rectwall3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1500, 400 )
+scale = Vector2( 5, 0.8 )
+move = true
+direction = 180
+
+[node name="rectwall4" parent="." instance=ExtResource( 7 )]
+position = Vector2( 1500, 1600 )
+scale = Vector2( 5, 0.8 )
+move = true

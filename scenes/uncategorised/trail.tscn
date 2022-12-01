@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/uncategorised/trail.gd" type="Script" id=1]
+
+[node name="trail" type="Line2D"]
+show_behind_parent = true
+default_color = Color( 0.627451, 0.670588, 0.886275, 1 )
+script = ExtResource( 1 )
