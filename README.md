@@ -10,6 +10,7 @@ Feel free to dig through the source code and learn from it. If you decide to use
 
 
 To play the game, visit the official Itch.io page at: https://blazingedgegames.itch.io/tis-but-a-scratch
+
 Alternatively, you can check out the game jam submission and votes at: https://itch.io/jam/game-off-2022/rate/1816378
 
 
